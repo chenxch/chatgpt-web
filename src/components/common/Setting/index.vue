@@ -1,6 +1,7 @@
 <script setup lang='ts'>
 import { computed, ref } from 'vue'
 import { NCard, NModal, NTabPane, NTabs } from 'naive-ui'
+import { NBaseClose } from 'naive-ui/es/_internal'
 import General from './General.vue'
 import About from './About.vue'
 import { SvgIcon } from '@/components/common'
@@ -32,6 +33,7 @@ const show = computed({
 <template>
   <NModal v-model:show="show" :auto-focus="false">
     <NCard role="dialog" aria-modal="true" :bordered="false" style="width: 95%; max-width: 640px">
+      <NBaseClose cls-prefix="n" class="!absolute right-[30px] top-[30px] z-10" @click="show = false" />
       <NTabs v-model:value="active" type="line" animated>
         <NTabPane name="General" tab="General">
           <template #tab>
